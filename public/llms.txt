@@ -1,0 +1,47 @@
+# Reflect.fi
+
+> Reflection Token Launchpad on Bitcoin L1 via OPNet
+
+## About
+
+Reflect.fi is a decentralized launchpad for creating reflection tokens on Bitcoin Layer 1 using the OPNet smart contract platform. Reflection tokens automatically distribute a percentage of every transfer to all existing holders, creating passive yield simply from holding.
+
+## How It Works
+
+1. Users configure token parameters (name, symbol, supply, tax rate)
+2. A ReflectToken smart contract (OP20 standard) is deployed on Bitcoin L1 via OPNet
+3. Every transfer of the token deducts a configurable tax (in basis points)
+4. The tax is redistributed proportionally to all holders based on their balance
+5. No staking, no claiming — rewards accrue automatically
+
+## Pages
+
+- [Home](https://reflect-fi.vercel.app): Overview, stats, and getting started
+- [Launch](https://reflect-fi.vercel.app/launch): Deploy a new reflection token
+- [Explore](https://reflect-fi.vercel.app/explore): Browse all deployed tokens
+
+## Technical Details
+
+- **Blockchain**: Bitcoin L1
+- **Smart Contract Platform**: OPNet (Tapscript-encoded calldata)
+- **Token Standard**: OP20 (ERC20 equivalent for Bitcoin)
+- **Network**: OPNet Testnet (Signet fork)
+- **Contract**: ReflectToken (WASM-compiled TypeScript)
+- **RPC**: https://testnet.opnet.org
+
+## Key Features
+
+- One-click token deployment
+- Configurable tax rates (0-50% in basis points)
+- Automatic holder reward distribution
+- On-chain block scanner for token discovery
+- Real-time wallet connection via OP_WALLET
+- Transaction tracking on mempool.opnet.org and opscan.org
+
+## Source Code
+
+- [GitHub Repository](https://github.com/bc1plainview/reflect-fi)
+
+## Contact
+
+Built for the OPNet hackathon.

@@ -2,24 +2,112 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta -->
     <title>Reflect.fi — Reflection Token Launchpad on Bitcoin</title>
     <meta name="description" content="Launch reflection tokens on Bitcoin L1 with OPNet. Custom tax rates, automatic holder rewards, one-click deploy." />
-    <meta name="theme-color" content="#7c3aed" />
+    <meta name="keywords" content="reflection token, Bitcoin L1, OPNet, DeFi, token launchpad, crypto, decentralized finance, bitcoin smart contracts" />
+    <meta name="author" content="Reflect.fi" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://reflect-fi.vercel.app" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph (Facebook, Telegram, Discord, Slack, iMessage, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://reflect-fi.vercel.app" />
     <meta property="og:title" content="Reflect.fi — Reflection Token Launchpad on Bitcoin" />
     <meta property="og:description" content="Launch OP20 reflection tokens on Bitcoin L1. Every transfer automatically distributes rewards to all holders." />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://reflect-fi.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Reflect.fi — Reflection Token Launchpad on Bitcoin L1" />
     <meta property="og:site_name" content="Reflect.fi" />
+    <meta property="og:locale" content="en_US" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%237c3aed'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='4' y='4' width='24' height='24' rx='4' transform='rotate(45 16 16)' fill='url(%23g)'/%3E%3Cpath d='M16 8 L22 16 L16 24 L10 16 Z' fill='rgba(255,255,255,0.3)'/%3E%3Cpath d='M16 11 L20 16 L16 21 L12 16 Z' fill='rgba(255,255,255,0.5)'/%3E%3C/svg%3E" />
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://reflect-fi.vercel.app" />
+    <meta name="twitter:title" content="Reflect.fi — Reflection Token Launchpad on Bitcoin" />
+    <meta name="twitter:description" content="Launch OP20 reflection tokens on Bitcoin L1. Every transfer automatically distributes rewards to all holders." />
+    <meta name="twitter:image" content="https://reflect-fi.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Reflect.fi — Reflection Token Launchpad on Bitcoin L1" />
 
-    <!-- Fonts -->
+    <!-- Slack rich labels -->
+    <meta name="twitter:label1" content="Platform" />
+    <meta name="twitter:data1" content="Bitcoin L1 / OPNet" />
+    <meta name="twitter:label2" content="Type" />
+    <meta name="twitter:data2" content="Token Launchpad" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0A0A1A" />
+    <meta name="msapplication-TileColor" content="#0A0A1A" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Reflect.fi" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Accessibility -->
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Security -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://testnet.opnet.org" />
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Reflect.fi",
+        "url": "https://reflect-fi.vercel.app",
+        "description": "Launch reflection tokens on Bitcoin L1 with OPNet. Custom tax rates, automatic holder rewards, one-click deploy.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "browserRequirements": "Requires JavaScript, modern browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Reflect.fi",
+            "url": "https://reflect-fi.vercel.app"
+        },
+        "image": "https://reflect-fi.vercel.app/og-image.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Reflect.fi",
+        "url": "https://reflect-fi.vercel.app",
+        "logo": "https://reflect-fi.vercel.app/icon-512.png",
+        "description": "Reflection Token Launchpad on Bitcoin L1 via OPNet",
+        "sameAs": [
+            "https://github.com/bc1plainview/reflect-fi"
+        ]
+    }
+    </script>
 </head>
 <body>
     <div id="root"></div>

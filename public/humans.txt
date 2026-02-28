@@ -1,0 +1,9 @@
+/* TEAM */
+Project: Reflect.fi
+Platform: Bitcoin L1 / OPNet
+Stack: React, TypeScript, Vite
+
+/* SITE */
+Standards: HTML5, CSS3, ES2022
+Software: Vite, React 19, framer-motion
+Hosting: Vercel

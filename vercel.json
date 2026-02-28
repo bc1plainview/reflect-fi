@@ -1,0 +1,37 @@
+{
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                { "key": "X-Content-Type-Options", "value": "nosniff" },
+                { "key": "X-Frame-Options", "value": "DENY" },
+                { "key": "X-XSS-Protection", "value": "0" },
+                { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+                { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
+                { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+            ]
+        },
+        {
+            "source": "/og-image.png",
+            "headers": [
+                { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800" }
+            ]
+        },
+        {
+            "source": "/favicon(.*)",
+            "headers": [
+                { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
+            ]
+        },
+        {
+            "source": "/llms.txt",
+            "headers": [
+                { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+                { "key": "Cache-Control", "value": "public, max-age=3600" }
+            ]
+        }
+    ],
+    "rewrites": [
+        { "source": "/((?!api|_next|favicon|og-image|apple-touch|icon-|robots|sitemap|llms|site\\.webmanifest|ReflectToken).*)", "destination": "/index.html" }
+    ]
+}
