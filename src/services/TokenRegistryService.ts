@@ -80,10 +80,9 @@ class TokenRegistryService {
                 this.tokens.push(chainToken);
                 changed = true;
             } else {
-                const existing = this.tokens[idx];
+                const existing = this.tokens[idx] ?? chainToken;
                 this.tokens[idx] = {
                     ...chainToken,
-                    // Preserve localStorage-only fields when available
                     taxBasisPoints: existing.taxBasisPoints || chainToken.taxBasisPoints,
                     deployer: existing.deployer || chainToken.deployer,
                     deployedAt: existing.deployedAt || chainToken.deployedAt,

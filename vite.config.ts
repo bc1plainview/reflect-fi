@@ -6,6 +6,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 export default defineConfig({
     base: '/',
     plugins: [
+        // Node.js polyfills MUST come first
         nodePolyfills({
             globals: {
                 Buffer: true,
@@ -37,23 +38,14 @@ export default defineConfig({
                 chunkFileNames: 'js/[name]-[hash].js',
                 assetFileNames: (assetInfo) => {
                     const name = assetInfo.names?.[0] ?? '';
-                    const info = name.split('.');
-                    const ext = info[info.length - 1];
-                    if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext ?? '')) {
-                        return 'images/[name][extname]';
-                    }
-                    if (/woff|woff2|eot|ttf|otf/i.test(ext ?? '')) {
-                        return 'fonts/[name][extname]';
-                    }
-                    if (/css/i.test(ext ?? '')) {
-                        return 'css/[name][extname]';
-                    }
+                    const ext = name.split('.').pop() ?? '';
+                    if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) return 'images/[name][extname]';
+                    if (/woff|woff2|eot|ttf|otf/i.test(ext)) return 'fonts/[name][extname]';
+                    if (/css/i.test(ext)) return 'css/[name][extname]';
                     return 'assets/[name][extname]';
                 },
                 manualChunks(id) {
-                    if (id.includes('crypto-browserify') || id.includes('randombytes')) {
-                        return undefined;
-                    }
+                    if (id.includes('crypto-browserify') || id.includes('randombytes')) return undefined;
                     if (id.includes('node_modules')) {
                         if (id.includes('@noble/curves')) return 'noble-curves';
                         if (id.includes('@noble/hashes')) return 'noble-hashes';
@@ -63,23 +55,30 @@ export default defineConfig({
                         if (id.includes('@btc-vision/bip32')) return 'btc-bip32';
                         if (id.includes('@btc-vision/post-quantum')) return 'btc-post-quantum';
                         if (id.includes('@btc-vision/wallet-sdk')) return 'btc-wallet-sdk';
-                        if (id.includes('opnet')) return 'opnet';
+                        if (id.includes('@btc-vision/walletconnect')) return 'btc-walletconnect';
+                        if (id.includes('node_modules/opnet')) return 'opnet';
                         if (id.includes('react-router')) return 'react-router';
                         if (id.includes('framer-motion')) return 'framer-motion';
                         if (id.includes('react-dom')) return 'react-dom';
                         if (id.includes('react')) return 'react';
                     }
-                    return undefined;
                 },
             },
+            external: [
+                'node:crypto', 'node:buffer', 'node:stream', 'node:util',
+                'node:path', 'node:fs', 'node:os', 'node:net', 'node:tls',
+                'node:http', 'node:https', 'node:events', 'node:url',
+                'node:zlib', 'node:worker_threads', 'node:child_process',
+            ],
         },
+        target: 'esnext',
+        modulePreload: false,
+        cssCodeSplit: false,
+        assetsInlineLimit: 10000,
+        chunkSizeWarningLimit: 3000,
     },
     optimizeDeps: {
-        include: ['react', 'react-dom', 'react-router-dom'],
-        esbuildOptions: {
-            define: {
-                global: 'globalThis',
-            },
-        },
+        include: ['react', 'react-dom', 'buffer', 'process'],
+        exclude: ['crypto-browserify', '@btc-vision/transaction'],
     },
 });

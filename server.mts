@@ -12,6 +12,7 @@ import { networks, initEccLib, crypto } from '@btc-vision/bitcoin';
 import { TransactionFactory, BinaryWriter } from '@btc-vision/transaction';
 import { ECPairSigner, createNobleBackend } from '@btc-vision/ecpair';
 import { QuantumBIP32Factory } from '@btc-vision/bip32';
+import type { QuantumBIP32Interface } from '@btc-vision/bip32';
 import { JSONRpcProvider } from 'opnet';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -28,7 +29,7 @@ const RPC_URL = 'https://testnet.opnet.org';
 
 let initialized = false;
 let signer: ECPairSigner;
-let mldsaKeypair: any;
+let mldsaKeypair: QuantumBIP32Interface;
 let deployerAddress: string;
 let provider: JSONRpcProvider;
 
@@ -42,11 +43,11 @@ async function init() {
     deployerAddress = signer.taprootAddress;
 
     // ML-DSA keypair from seed
-    const seedBuf = Buffer.alloc(64);
     const privKey = signer.privateKey;
     if (!privKey) throw new Error('No private key');
-    privKey.copy(seedBuf, 0);
-    privKey.copy(seedBuf, 32);
+    const seedBuf = new Uint8Array(64);
+    seedBuf.set(privKey, 0);
+    seedBuf.set(privKey, 32);
     const mldsaRoot = QuantumBIP32Factory.fromSeed(seedBuf, NETWORK, undefined, undefined, crypto);
     mldsaKeypair = mldsaRoot.derivePath("m/44'/0'/0'/0/0");
 

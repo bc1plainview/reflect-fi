@@ -46,7 +46,12 @@ export default tseslint.config(
             'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
             'no-restricted-globals': [
                 'error',
-                { name: 'Buffer', message: 'Buffer is REMOVED from OPNet. Use Uint8Array.' },
+                { name: 'Buffer', message: 'Buffer is REMOVED from OPNet. Use Uint8Array with BufferHelper from @btc-vision/transaction.' },
+            ],
+            'no-restricted-properties': [
+                'error',
+                { object: 'Buffer', property: 'from', message: 'Buffer is REMOVED. Use BufferHelper.fromHex() or new TextEncoder().encode().' },
+                { object: 'Buffer', property: 'alloc', message: 'Buffer is REMOVED. Use new Uint8Array(size).' },
             ],
         },
     },

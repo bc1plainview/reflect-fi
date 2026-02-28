@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { networks, Network } from '@btc-vision/bitcoin';
 import { contractService } from '../services/ContractService';
 import { providerService } from '../services/ProviderService';
