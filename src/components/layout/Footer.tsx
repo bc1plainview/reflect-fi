@@ -32,6 +32,7 @@ export function Footer(): ReactNode {
                             <a href="https://vibecode.finance" target="_blank" rel="noopener noreferrer">vibecode.finance</a>
                             <a href="https://opscan.org" target="_blank" rel="noopener noreferrer">OPScan</a>
                             <a href="https://mempool.opnet.org" target="_blank" rel="noopener noreferrer">OPNet Mempool</a>
+                            <a href="https://x.com/bc1plainview" target="_blank" rel="noopener noreferrer">@bc1plainview</a>
                         </div>
                     </div>
                 </div>
