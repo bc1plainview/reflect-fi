@@ -547,7 +547,7 @@ export function LaunchPage(): ReactNode {
                                     flexWrap: 'wrap',
                                 }}>
                                     <a
-                                        href={`https://mempool.opnet.org/testnet4`}
+                                        href={`https://mempool.opnet.org/testnet4/tx/${txId}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn btn-outline btn-sm"
