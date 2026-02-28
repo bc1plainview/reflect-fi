@@ -16,8 +16,11 @@ import { JSONRpcProvider } from 'opnet';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Deployer wallet — testnet only
-const DEPLOYER_WIF = 'REMOVED_KEY_SEE_ENV';
+// Deployer wallet — loaded from environment
+const DEPLOYER_WIF = process.env.DEPLOYER_WIF;
+if (!DEPLOYER_WIF) {
+    throw new Error('DEPLOYER_WIF environment variable is required. Set it in .env or export it.');
+}
 const FEE_ADDRESS = 'opt1pcluu8yypmu3ylynk8vdxv44snyjmyff2f9j9vehggcfrunnmqkfq4phqrv';
 const FEE_SATS = 15_000n;
 const NETWORK = networks.opnetTestnet;
