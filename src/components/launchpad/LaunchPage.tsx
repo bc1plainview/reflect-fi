@@ -547,7 +547,7 @@ export function LaunchPage(): ReactNode {
                                     flexWrap: 'wrap',
                                 }}>
                                     <a
-                                        href={`https://mempool.opnet.org/testnet4/tx/${txId}`}
+                                        href={`https://mempool.opnet.org/testnet4`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn btn-outline btn-sm"
@@ -557,7 +557,7 @@ export function LaunchPage(): ReactNode {
                                         View on Mempool
                                     </a>
                                     <a
-                                        href={`https://opscan.org/tx/${txId}`}
+                                        href={`https://opscan.org/transactions/${txId}?network=op_testnet`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn btn-outline btn-sm"
